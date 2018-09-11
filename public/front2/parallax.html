@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Board</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lumen/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/front2/css/style.css">
+</head>
+
+<body>
+  <div class="pimg1">
+    <div>
+      <img src="./assets/images/cork.png" alt="" class="box-img">
+    </div>
+  </div>
+
+  <section class="section section-dark">
+    <h2>Create Your Board</h2>
+    <!-- Create New Board Code -->
+    <form id="start-board">
+      <div class="container">
+        <div class="flex-row row justify-content-center">
+          <div class="col-6-md col-12-xs">
+            <input class="new-item form-control" placeholder="Your New Board Name" type="text" id="boardName" required="required">
+          </div>
+          <div class="col-4-md col-12-xs">
+            <input class="new-item form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Your Email" type="email"
+              id="ownerEmail" required="required">
+          </div>
+          <div class="col-4-md col-12-xs">
+            <input value="Create new Board" type="submit" class="btn btn-primary" data-toggle="modal" id="createBoard"></input>
+          </div>
+        </div>
+    </form>
+
+
+  </section>
+
+  <div class="pimg2">
+    <div class="ptext">
+      <span class="border trans">
+        Get Organized
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-dark">
+    <h2>Our Purpose</h2>
+    <p>
+      Cork Board is an easy to use dynamic web application that allows you to create and bookmark a unique board space and invite
+      anyone to read and post to your board. On your board, you can bookmark, tag, and search for your favorite links. You
+      can also add announcements to communicate with your board followers.
+    </p>
+    <p>It's our hope that through our app you can better pool resources with teammates, friends, and classmates as you work together.</p>
+  </section>
+
+  <div class="pimg3">
+    <div class="ptext">
+      <span class="border trans">
+        Collaborate
+      </span>
+    </div>
+  </div>
+
+  <!--Modal that Displays URL and Sends E-mail Invite -->
+  <div class="modal fade" id="inviteModal" tabindex="-1" role="dialog" aria-labelledby="inviteModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalInvite">Your Board URL: </h5>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Send Invites To Your Board: (Use a Comma to Send to Multiple Email Address)</label>
+              <input type="email" class="form-control" id="inviteEmails" required="required" placeholder="name@example.com, name2@example.com"
+                multiple>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="inviteEmailMsg"></textarea>
+            </div>
+          </form>
+
+          <div class="modal-footer">
+            <!-- Close Button on Modal -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <!-- <span aria-hidden="true">&times;</span> -->
+            </button>
+            <!-- Send Message Button on Modal -->
+            <button type="button" class="btn btn-secondary" id="skipBtn" data-dismiss="modal">Skip</button>
+            <button type="button" class="btn btn-primary" id="sendInvites">Send Invite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal for incorrect board inputs -->
+
+  <div class="modal" tabindex="-1" role="dialog" id="errorModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="errModalText"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <section class="section section-dark">
+    <h2>Contact Us</h2>
+    <a href="mailto:corkboard062018@gmail.com?subject=Cork%20Board&" target="_top">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <br>
+    <p>
+      All Rights Reserved. © Cork Board 2018
+    </p>
+  </section>
+
+  <div class="pimg1">
+      <div>
+        <img src="./assets/images/cork.png" alt="" class="box-img">
+      </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="/front2/home.js"></script>
+</body>
+
+</html>

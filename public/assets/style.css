@@ -1,0 +1,881 @@
+li {
+  list-style: none;
+}
+
+a {
+  color: #0094dd;
+}
+
+a:hover {
+  color: rgb(0, 103, 155);
+}
+
+.animation {
+  position: relative;
+  animation: move 30s infinite;
+  animation-timing-function: ease-in;
+  -webkit-animation: move 30s infinite;
+  -webkit-animation-timing-function: ease-in;
+}
+
+
+@keyframes move {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%
+  }
+}
+
+@-webkit-keyframes move {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 100%
+  }
+}
+
+/*//////NAV/////*/
+
+.navbar {
+  background: rgb(0, 29, 68);
+  color: white;
+  border-bottom: 1px solid #100f4e;
+}
+
+.navbar-toggler collapsed {
+  color: white;
+}
+
+#filterDropdown {
+  margin: 100px 0px 0px 50px;
+  height: 190px;
+  background: white;
+  color: black;
+  display: none;
+}
+
+#filterButtons {
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.tagWrapper {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* margin-left: 40%; */
+  /* text-align: center; */
+  display: none;
+  overflow: hidden;
+}
+
+.filterSubmit {
+  color: white;
+}
+
+#logo {
+  float: left;
+  width: 60px;
+}
+
+.dropdown-menu {
+  background: #100f4e;
+}
+
+#boardID {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+#close {
+  position: absolute;
+  margin-top: -10px;
+  right: 40px;
+}
+
+#filter {
+  position: absolute;
+  margin-top: -10px;
+  right: 40px;
+  color: white;
+  display: inline-block;
+}
+
+#bookmark {
+  position: absolute;
+  margin-top: -34px;
+  right: 0;
+  color: white;
+  display: inline-block;
+}
+
+.checkboxBtn input[type="text"] {
+  background: blue;
+  margin-right: 10px;
+}
+
+.btn,
+.newLink {
+  background-color: #0094dd !important;
+  margin: 5px;
+}
+
+.newLink,
+.newLink2 {
+  margin-top: 35px;
+  margin-left: -35px;
+  color: white;
+  background: #0b1950;
+}
+
+.btn:hover,
+.newLink:hover {
+  background-color: rgb(1, 87, 131) !important;
+}
+
+.modal-body input[type="text"] {
+  width: 100%;
+}
+
+.linkitButton {
+  background: blue;
+}
+
+.dropdown-menu {
+  background: white;
+}
+
+/*//////BODY////*/
+
+body {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsnF53qYkxpaMRCE5neDUQKj9CC6foQ1uAgvx5BRYxoH-LCWuGUg") no-repeat center center fixed;
+  /* background: url("https://sewsweetness.com/wp-content/uploads/2016/11/jeansblue.jpg")no-repeat center center fixed; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* background: rgb(23, 22, 42); */
+  font-family: "Lato", sans-serif;
+  /* background: rgb(235, 234, 234); */
+}
+
+.main {
+  margin-right: 400px;
+  /* Same as the width of the sidenav */
+  font-size: 15px;
+  /* Increased text to enable scrolling */
+  margin-top: 150px;
+}
+
+#boardName,
+#dropAnnounce {
+  display: none;
+}
+
+#boardNameFull {
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  margin: -100px 90px 0px 20px;
+}
+
+/*///////CARDS/////*/
+
+.card {
+  margin: 0px 0px 10px -50px;
+  /* background: rgb(169, 197, 211); */
+}
+
+.card-title {
+  margin-top: 15px
+}
+
+.card-body {
+  height: 260px;
+  background: white;
+  /* background: #6985b6; */
+  /* opacity: .8; */
+  color: black;
+  overflow: auto;
+}
+
+.annoucementCard-body {
+  height: initial;
+  background: white;
+  padding-left: 10px;
+  /* background: #6985b6; */
+  /* opacity: .8; */
+  color: black;
+  overflow: auto;
+}
+
+h5 {
+  position: absolute;
+  top: -25px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.announcementtitle {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.cardImg {
+  margin-left: 0;
+  max-height: auto;
+  max-width: 794px;
+}
+
+.topsec {
+  background: #001945;
+  color: white;
+  border-color: #001945;
+}
+
+.topsec1 {
+  background: #1394db;
+  color: white;
+  border-color: #001945;
+  padding-top: 100px
+}
+
+.bottomsec {
+  background: #001945;
+  /* opacity: .9; */
+  margin-bottom: -1px;
+}
+
+#url {
+  float: left;
+  /* margin-left: -40px; */
+}
+
+.cardEdit {
+  position: absolute;
+  right: 0;
+  color: #16fd99;
+  font-size: 15px;
+  padding: 0px 80px 20px 0px;
+  cursor: pointer;
+}
+
+/* .cardEdit:hover {
+background: rgb(33, 134, 33);
+} */
+
+.cardDelete {
+  position: absolute;
+  right: 0;
+  color: red;
+  font-size: 15px;
+  padding: 0px 40px 20px 0px;
+  cursor: pointer;
+}
+
+.tags {
+  /* text-align: center; */
+  margin-top: 5px;
+  color: white;
+}
+
+.tagsId {
+  color: white;
+  font-size: 15px;
+  width: 80%;
+}
+
+.topics {
+  margin-right: 1px;
+}
+
+.sidebar {
+  position: absolute;
+  right: 20px;
+  top: 168px;
+  width: 100%;
+  height: 100%;
+}
+
+#author {
+  color: rgb(1, 165, 50);
+}
+
+#close {
+  display: none;
+  position: absolute;
+  margin-top: -5px;
+  right: 10px;
+  font-size: 25px;
+}
+
+.filterCard {
+  margin-top: 105px;
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.newAnn {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  right: 30px;
+}
+
+.newAnn:hover {
+  cursor: pointer;
+  color: #0094dd;
+}
+
+.smallAdd {
+  position: absolute;
+  margin-top: -10px;
+}
+
+/*///////MEDIA QUERIES/////*/
+
+/*==================================================
+= Bootstrap 3 Media Queries =
+==================================================*/
+
+/*========== Mobile First Method ==========*/
+
+/* Custom, iPhone Retina */
+/* 
+@media only screen and (min-width: 320px) {
+  .topMenu {
+    display: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 120%;
+  }
+  h5 {
+    font-size: 75%;
+  }
+  .title {
+    font-size: 15px;
+  }
+  .smallMenu {
+    margin-top: 25px;
+  }
+  #filterDropdown,
+  #filter,
+  .newLink,
+  #boardNameFull {
+    display: none;
+  }
+  .dropdown-menu {
+    margin-top: -5px;
+  }
+  .menuRight {
+    margin-top: 45px;
+  }
+  #announce {
+    position: absolute;
+    margin-top: -20px;
+    right: 0;
+    /* height: 100%; */
+  /* }
+  #close {
+    display: none;
+    position: absolute;
+    margin-top: -55px;
+    right: 10px;
+    font-size: 25px;
+  }
+  #filter {
+    position: absolute;
+    margin-top: -60px;
+    right: 0;
+    color: white;
+  }
+  .filterButton {
+    margin-right: -25px;
+  }
+  .filterCard {
+    position: fixed;
+    display: none;
+    overflow: auto;
+    z-index: 1;
+    margin-top: 120px;
+    margin-left: 25px;
+    height: 100%;
+  }
+  #boardName {
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    margin: 0px 90px 0px 0px;
+  }
+  .main {
+    font-size: 15px;
+    margin-top: 75px;
+    margin-right: 0px;
+  }
+  .cardDescription {
+    display: none;
+    color: black;
+  }
+  .cardImg {
+    margin-left: 0;
+    max-height: auto;
+    max-width: 794px;
+  }
+  #url {
+    margin-top: -40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+  }
+  .sidebar {
+    position: fixed;
+    display: none;
+    width: 400px;
+    margin-right: -20px;
+    margin-top: -30px;
+  }
+  .sidebar p {
+    color: black;
+  }
+  #dropAnnounce {
+    position: fixed;
+    display: none;
+    width: 400px;
+    top: 70px;
+    right: -20px;
+    margin-top: 60px;
+    height: 100%;
+  }
+  #closeAnn {
+    display: none;
+    position: absolute;
+    margin-top: -25px;
+    right: 20px;
+    font-size: 25px;
+  }
+} */
+
+/* Extra Small Devices, Phones */
+/* 
+@media only screen and (min-width: 480px) {
+  .topMenu,
+  #filterDropdown,
+  #boardNameFull {
+    display: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 120%;
+  }
+  h5 {
+    font-size: 120%;
+  }
+  .smallMenu {
+    margin-top: 25px;
+  }
+  #close {
+    display: none;
+    position: absolute;
+    margin-top: -10px;
+    right: 230px;
+    font-size: 35px;
+  }
+  #filter {
+    position: absolute;
+    margin-top: -10px;
+    right: 200px;
+    text-align: center;
+    color: white;
+  }
+  .filterCard {
+    margin: 120px 0px 0px 20px;
+    height: 100%;
+    width: 100%;
+  }
+  #boardName {
+    position: absolute;
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 35px;
+    margin-left: 200px;
+  }
+  .main {
+    font-size: 15px;
+    margin-top: 85px;
+    margin-right: 0px;
+  }
+  .cardDescription {
+    margin-top: -20px;
+    display: none;
+  }
+  .cardImg {
+    margin-left: 0;
+    max-height: auto;
+    max-width: 794px;
+  }
+  #url {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
+  }
+  .sidebar {
+    position: fixed;
+    display: none;
+    width: 400px;
+    margin-right: -20px;
+    margin-top: -24px;
+  }
+  #dropAnnounce {
+    position: fixed;
+    display: none;
+    width: 400px;
+    top: 70px;
+    right: -20px;
+    margin-top: 60px;
+    height: 100%;
+  }
+  #closeAnn {
+    display: none;
+    position: absolute;
+    margin-top: -25px;
+    right: 20px;
+    font-size: 25px;
+  }
+} */ 
+
+@media only screen and (min-width: 575px) {
+  .main {
+    margin-top: 90px;
+  }
+  .cardDescription {
+    display: block;
+  }
+  .cardImg {
+    margin-left: 0;
+    max-height: auto;
+    max-width: 794px;
+  }
+  #boardName {
+    position: absolute;
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 35px;
+    margin-left: 220px;
+  }
+  #dropAnnounce {
+    position: fixed;
+    display: none;
+    width: 400px;
+    top: 80px;
+    right: -20px;
+    margin-top: 50px;
+    height: 100%;
+  }
+  #closeAnn {
+    display: none;
+    position: absolute;
+    margin-top: -25px;
+    right: 20px;
+    font-size: 25px;
+  }
+}
+
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {
+  .topMenu {
+    display: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 120%;
+  }
+  h5 {
+    font-size: 150%;
+  }
+  #announce,
+  #closeAnn {
+    display: none;
+  }
+  #close {
+    display: none;
+    position: absolute;
+    margin-top: -10px;
+    right: 230px;
+    font-size: 35px;
+  }
+  #filter {
+    position: absolute;
+    margin-top: -5px;
+    right: 200px;
+    text-align: center;
+    color: white;
+  }
+  .filterCard {
+    margin: 120px 0px 0px 20px;
+    height: 100%;
+    overflow: auto;
+  }
+  #boardName {
+    position: absolute;
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 35px;
+    margin-left: 120px;
+  }
+  #boardNameFull {
+    display: none;
+  }
+  .smallAdd {
+    display: block;
+  }
+  .main {
+    font-size: 15px;
+    margin-top: 85px;
+    margin-right: 0px;
+  }
+  .cardDescription {
+    margin-top: -20px;
+    display: block;
+  }
+  .timestamp {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
+  }
+  .sidebar {
+    position: fixed;
+    display: block;
+    width: 34%;
+    top: 110px;
+  }
+}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
+  #btnGroupDrop1 {
+    display: none;
+  }
+  .topMenu {
+    display: block;
+    margin-left: -50px;
+  }
+  .topMenu ul {
+    display: inline-block;
+    margin-right: -80px;
+  }
+  .topMenu li {
+    display: inline;
+    margin-left: 40px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 120%;
+  }
+  h5 {
+    font-size: 185%;
+  }
+  .newLink {
+    display: block;
+  }
+  .title {
+    font-size: 20px;
+  }
+  #announce,
+  #closeAnn {
+    display: none;
+  }
+  #close {
+    display: none;
+    position: absolute;
+    margin-top: -10px;
+    right: 230px;
+    font-size: 35px;
+  }
+  #filter {
+    display: block;
+    position: absolute;
+    margin-top: -5px;
+    right: 200px;
+    text-align: center;
+    color: white;
+  }
+  .filterCard {
+    margin: 80px 0px 0px 20px;
+    height: 100%;
+    overflow: auto;
+  }
+  .filterButton {
+    font-size: 15px;
+    width: 250px;
+  }
+  #boardName {
+    display: none;
+  }
+  #boardNameFull {
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    margin: 30px 90px 0px 20px;
+  }
+  .main {
+    font-size: 15px;
+    margin-top: 85px;
+    margin-right: 400px;
+  }
+  .cardDescription {
+    margin-top: -30px;
+    display: block;
+  }
+  .timestamp {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+  }
+  #url {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 450px;
+  }
+  .sidebar {
+    width: 400px;
+  }
+}
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {
+  #btnGroupDrop1 {
+    display: none;
+  }
+  .topMenu {
+    display: block;
+    margin-left: -50px;
+  }
+  .topMenu ul {
+    display: inline-block;
+    margin-right: -80px;
+  }
+  .topMenu li {
+    display: inline;
+    margin-left: 40px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 120%;
+  }
+  h5 {
+    font-size: 185%;
+  }
+  nav {
+    margin-bottom: -30px;
+  }
+  #closeAnn {
+    display: none;
+  }
+  #close {
+    display: none;
+    position: absolute;
+    margin-top: -10px;
+    right: 230px;
+    font-size: 35px;
+  }
+  #filter {
+    display: block;
+    position: absolute;
+    margin-top: -5px;
+    right: 200px;
+    text-align: center;
+    color: white;
+  }
+  .filterCard {
+    margin: 80px 0px 0px 20px;
+    height: 100%;
+    overflow: hidden;
+  }
+  .filterButton {
+    font-size: 15px;
+    width: 250px;
+  }
+  #boardName {
+    display: none;
+  }
+  #boardNameFull {
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    margin: 30px 90px 0px 20px;
+  }
+  .main {
+    font-size: 15px;
+    margin-top: 115px;
+  }
+  .cardImg {
+    margin-left: 0;
+    max-height: auto;
+    max-width: 794px;
+    border: #0094dd
+  }
+  .cardDescription {
+    margin-top: -5px;
+    display: block;
+  }
+  .timestamp {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+  }
+  #url {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 450px;
+    padding-top: 15px;
+  }
+  .tags {
+    color: white;
+  }
+  .sidebar {
+    width: 400px;
+  }
+  #announce {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  #dropAnnounce {
+    display: none;
+  }
+}
