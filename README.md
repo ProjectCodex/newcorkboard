@@ -115,6 +115,7 @@ The following are instructions for downloading this GitHub repository in order t
 * "Hisham Galeb" <Hisham.nman@gmail.com> - Front End Developer
 * "Syyad Khan" <syyadkhan@yahoo.com> - Front End Developer
 * "Juan Caballero" <caballero_juan_f@hotmail.com> - Front End Developer
+* "Rick Smith" rs90th@gmail.com - Software Developer
 
 <center>
 
