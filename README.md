@@ -116,6 +116,7 @@ The following are instructions for downloading this GitHub repository in order t
 * "Syyad Khan" <syyadkhan@yahoo.com> - Front End Developer
 * "Juan Caballero" <caballero_juan_f@hotmail.com> - Front End Developer
 * "Rick Smith" rs90th@gmail.com - Software Developer
+* "Javier "Javi" Carrion <javiercarrionjr@outlook.com> - Software Developer
 
 <center>
 
