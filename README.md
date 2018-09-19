@@ -117,6 +117,7 @@ The following are instructions for downloading this GitHub repository in order t
 * "Juan Caballero" <caballero_juan_f@hotmail.com> - Front End Developer
 * "Rick Smith" rs90th@gmail.com - Software Developer
 * "Javier "Javi" Carrion <javiercarrionjr@outlook.com> - Software Developer
+* "Iramis Valentin" <iramisvalentin@gmail.com> - Software Developer and Test Automation Engineer
 
 <center>
 
