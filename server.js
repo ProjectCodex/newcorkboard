@@ -1,28 +1,22 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const bodyParser = require("body-parser");
-const PORT = process.env.PORT || 3307;
-const db = require("./models/index.js");
+const PORT = process.env.PORT || 3001;
+const db = require("./models");
 const path = require("path");
-const apiRouter = require("./routes/apiRoutes.js");
-const htmlRouter = require('./routes/htmlRoutes.js');
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json());
+// non-authenticated routes and files can be added here
+app.use(express.static('client/build'));
 
-app.use(express.static('public/'));
-app.use('/api', apiRouter);
-app.use('/', htmlRouter);
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
-//handelbars
-const exphbs = require('express-handlebars');
-app.engine("handlebars", exphbs({
-    defaultLayout: "main"
-}));
-app.set("view engine", "handlebars");
+// configure express and require authentication
+require('./auth/express-config')(app);
 
+//authenticated routes and files go here
+app.use('/api', require("./routes/apiRoutes.js"));
 
 db.sequelize.sync({}).then(
     app.listen(PORT, function () {

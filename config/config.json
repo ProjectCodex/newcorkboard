@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Reinaldo40!",
-    "database": "corkboard",
+    "password": "root",
+    "database": "corkboard2",
     "host": "localhost",
     "dialect": "mysql"
   },
