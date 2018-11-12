@@ -2,6 +2,7 @@
   "name": "corkboard",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "react": "^16.6.1",
