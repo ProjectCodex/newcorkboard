@@ -264,16 +264,9 @@ router.post('/boards/:boardId/tags', function(req, res) {
     }).catch(err=>res.json(err))
 });
 
-
-router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/front2/parallax.html"));
-});
-
 router.get('/boards/:board/*', function(req, res) {
     res.redirect(`/boards/${req.params.board}`);
 });
-router.get('*', function(req, res) {
-    res.redirect('/');
-});
+
 
 module.exports = router;

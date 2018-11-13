@@ -37,22 +37,38 @@ router.post('/scrape', function(req, res) {
     }); 
 });
 
+//get boards associated with your account
+router.get('/boardlist', async (req, res) => {
+    const list = await req.user.getBoards();
+    // const list = await db.Board.findAll({});
+    res.json(list);
+});
+
 //create a new board
 router.post('/boards/new', function(req, res) {
     db.Board.create({
         name: req.body.name
-    }).then(results => res.json(results))
+    }).then(board => {
+        board.addUser(req.user, { through: { role: 'admin' } });
+        res.json(board)
+    })
     .catch(err => res.json(err));
 });
 
 //delete board
-router.delete('/boards/:boardId', function(req, res) {
-    db.Board.destroy({
-        where: {
-            id: req.params.boardId
+router.delete('/boards/:boardId', async function(req, res) {
+    try {
+        const board = await db.Board.findById(req.params.boardId);
+        const user = await board.getUsers({ where: { id: req.user.id } });
+        if (user[0].BoardUsers.role === 'admin') {
+            const result = await db.Board.destroy({ where: { id: req.params.boardId } });
+            res.json({'message': `Board '${board.name}' Deleted`});
+        } else {
+            res.json({ 'error': 'You must be an admin to delete a board' });
         }
-    }).then(results => res.json(results))
-    .catch(err => res.json(err));
+    } catch(err) {
+        res.json(err)
+    }
 });
 
 //create a new link
