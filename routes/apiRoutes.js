@@ -81,7 +81,7 @@ router.get('/boards/:boardId/users', asyncErr(async (req, res) => {
 }));
 
 router.get('/boards/:boardId/join', adminCheck, asyncErr(async (req, res) => {
-    if (!req.user.admin) {
+    if (req.user && !req.user.admin) {
         const board = await db.Board.findById(req.params.boardId);
         board.addUser(req.user, { through: { role: 'user' } });
         res.json(req.user);
@@ -94,9 +94,9 @@ router.get('/boards/:boardId/join', adminCheck, asyncErr(async (req, res) => {
 router.post('/boards/new', asyncErr(async function(req, res) {
     const board = await db.Board.create({ name: req.body.name });
     const users = await board.addUser(req.user, { through: { role: 'admin' } });
-    const user = users[0][0]
+    const user = users[0][0];
     console.log(user);
-    res.status(200).json({board, user})
+    res.status(200).json({board, user});
 }));
 
 //delete board
