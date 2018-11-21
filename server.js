@@ -25,7 +25,8 @@ app.get('*', function(req, res) {
 //implement error handler that will respond with JSON and a 500 status code
 app.use(require('./middleware/errorHandler'));
 
-db.sequelize.sync({}).then(
+//changing force to true will clear the database
+db.sequelize.sync({force: false}).then(
     app.listen(PORT, function () {
         console.log("listening on http://localhost:" + PORT);
     })

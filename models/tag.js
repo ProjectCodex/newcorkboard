@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   Tag.associate = function(models) {
     // associations can be defined here
     Tag.belongsTo(models.Board);
-    Tag.belongsToMany(models.Link,{through: 'linkTags'});
+    Tag.belongsTo(models.User);
+    Tag.belongsToMany(models.Link, { through: 'linkTags' });
   };
   return Tag;
 };
