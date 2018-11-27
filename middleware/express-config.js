@@ -1,6 +1,6 @@
-const authRouter = require('./auth-routes');
+const authRouter = require('../auth/auth-routes');
 const cookieSession = require('cookie-session');
-const passport = require('./auth-config');
+const passport = require('../auth/auth-config');
 const bodyParser = require("body-parser");
 
 
@@ -22,5 +22,4 @@ module.exports = function(app) {
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(authRouter);
-    app.use(require('./enforce-auth.js'));
 }

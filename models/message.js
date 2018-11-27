@@ -10,22 +10,12 @@ module.exports = (sequelize, DataTypes) => {
           max: 500,
         }
       }
-    },
-    author: {
-      type:DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'anonymous',
-      validate: {
-        notEmpty: true,
-        len: {
-          max: 100
-        }
-      }
     }
   }, {});
-  Message.associate = function(models) {
+  Message.associate = function (models) {
     // associations can be defined here
     Message.belongsTo(models.Board);
+    Message.belongsTo(models.User);
   };
   return Message;
 };

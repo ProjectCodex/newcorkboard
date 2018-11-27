@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   Link.associate = function(models) {
     // associations can be defined here
     Link.belongsTo(models.Board);
+    Link.belongsTo(models.User);
     Link.belongsToMany(models.Tag, {through: 'linkTags'});
   };
   return Link;
