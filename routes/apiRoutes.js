@@ -37,7 +37,7 @@ router.post('/scrape', function(req, res) {
             if(data.images[0]) meta.image = data.images[0].url
             res.status(200).json(meta);
         }
-    }); 
+    });
 });
 
 //dev route for adding fake users
@@ -62,7 +62,7 @@ router.get('/users', asyncErr(async (req, res) =>{
 router.get('/boards/me', asyncErr(async (req, res) => {
     const list = await req.user.getBoards();
     // const list = await db.Board.findAll({});
-    res.status(200).json(list);
+    res.status(200).json({list});
 }));
 
 // get all boards
@@ -70,23 +70,23 @@ router.get('/boards', asyncErr(async (req, res) => {
     const list = await db.Board.findAll({
         include: { model: db.User }
     });
-    res.status(200).json(list);
+    res.status(200).json({list});
 }));
 
 // get users associated with a board
 router.get('/boards/:boardId/users', asyncErr(async (req, res) => {
     const board = await db.Board.findOne({ where: { id: req.params.boardId } });
     const users = await board.getUsers();
-    res.status(200).json(users);
+    res.status(200).json({users});
 }));
 
 router.get('/boards/:boardId/join', adminCheck, asyncErr(async (req, res) => {
     if (req.user && !req.user.admin) {
         const board = await db.Board.findById(req.params.boardId);
-        board.addUser(req.user, { through: { role: 'user' } });
-        res.status(200).json(req.user);
+        const user = await board.addUser(req.user, { through: { role: 'user' } });
+        res.status(200).json({user});
     } else {
-        throw new Error('You are already an admin of this board')
+        throw new Error('You are already an admin of this board');
     }
 }));
 
@@ -129,7 +129,7 @@ router.post('/boards/:boardId/links/new', dummyUser, asyncErr(async function(req
     } else {
         res.status(200).json({ link });
     }
-    
+
 }));
 
 //edit link info
@@ -137,7 +137,7 @@ router.put('/boards/:boardId/links/:linkId', adminCheck, asyncErr(async function
     // find link
     const link = await db.Link.findOne({ where: { id : req.params.linkId } });
     // ensure sender is link owner or an admin
-    
+
     if (link.UserId === req.user.id || req.user.admin) {
         const result = await db.Link.update({
             title: req.body.title,
@@ -170,7 +170,7 @@ router.delete('/boards/:boardId/links/:linkId', adminCheck, asyncErr(async funct
     // find link
     const link = await db.Link.findOne({ where: { id : req.params.linkId } });
     // ensure sender is link owner or an admin
-    
+
     if (link.UserId === req.user.id || req.user.admin) {
         const result = await db.Link.destroy({
             where: {
@@ -187,7 +187,7 @@ router.delete('/boards/:boardId/links/:linkId', adminCheck, asyncErr(async funct
 //get all tags
 router.get('/boards/:boardId/tags', asyncErr(async function(req, res) {
     const result = await db.Tag.findAll({ where: { BoardId: req.params.boardId } });
-    res.status(200).json(result);
+    res.status(200).json({result});
 }));
 
 //create a tag
@@ -197,7 +197,7 @@ router.post('/boards/:boardId/tags/new', asyncErr(async function(req, res) {
         BoardId: req.params.boardId,
         UserId: req.user.id
     });
-    res.status(200).json(result);
+    res.status(200).json({result});
 }));
 
 //delete a tag
@@ -212,7 +212,7 @@ router.delete('/boards/:boardId/tags/:tagId', adminCheck, asyncErr(async functio
                 BoardId: req.params.boardId
             }
         })
-        res.status(200).json(result);
+        res.status(200).json({result});
     } else {
         throw new Error('Must be tag owner or admin to delete this tag');
     }
@@ -303,8 +303,8 @@ router.get('/boards/:boardId', function(req, res) {
         order: [
             [{model: db.Link, as: "links"},'updatedAt', 'DESC'],
             [{model: db.Tag, as: "tags"},'updatedAt', 'DESC'],
-            [{model: db.Message, as: "messages"},'updatedAt', 'DESC']            
-            
+            [{model: db.Message, as: "messages"},'updatedAt', 'DESC']
+
         ],
         include: [
             {
@@ -503,13 +503,13 @@ router.post('/boards/:boardId/tags', function(req, res) {
         where: {
             BoardId: req.params.boardId
         },
-    order: [['name', 'ASC']]                
+    order: [['name', 'ASC']]
     });
     const msgProm = db.Message.findAll({
         where: {
             BoardId: req.params.boardId
         },
-        order: [['updatedAt', 'DESC']]               
+        order: [['updatedAt', 'DESC']]
     });
     const [board, links, tags, msgs] = await Promise.all([boardProm, linkProm, tagProm, msgProm]);
     res.status(200).json({ board, links, tags, msgs });
