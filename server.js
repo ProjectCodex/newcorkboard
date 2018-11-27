@@ -13,10 +13,10 @@ require('./middleware/express-config')(app);
 app.use(express.static('client/build'));
 
 // serve api routes but require authentication
-// app.use('/api', enforceAuth, require("./routes/apiRoutes.js"));
+app.use('/api', enforceAuth, require("./routes/apiRoutes.js"));
 
 //dont enforce auth
-app.use('/api', require("./routes/apiRoutes.js"));
+// app.use('/api', require("./routes/apiRoutes.js"));
 
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
