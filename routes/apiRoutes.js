@@ -6,6 +6,10 @@ const asyncErr = require('../middleware/asyncErr');
 const adminCheck = require('../middleware/admin');
 const dummyUser = require('../middleware/dummyUser');
 
+router.get('/me', function(req, res) {
+    res.json({user: req.user});
+});
+
 router.post('/mail', function(req, res){
     //sendMail(to, subject, bodyText, htmlText)
     mail(req.body.to, req.body.subject, req.body.bodyText, req.body.htmlText);
