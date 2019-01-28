@@ -474,7 +474,7 @@ router.get('/boards/:board/tags/:tagId', asyncErr(async function(req, res) {
 }));
 
 // get all board items, but only links associated with mulitple tags
-router.post('/boards/:boardId/tags', function(req, res) {
+router.post('/boards/:boardId/tags', async function(req, res) {
     const boardProm = db.Board.findOne({
         where: {
             id: req.params.boardId
